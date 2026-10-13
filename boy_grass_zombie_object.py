@@ -39,27 +39,28 @@ class Zombie:
         self.x += 5
 
     def draw(self):
-        frame_width = self.image.w // 10
-        frame_height = self.image.h
-        self.image.clip_draw(self.frame * frame_width, 0, frame_width, frame_height,
-                             self.x, self.y, frame_width // 2, frame_height // 2)
+        # frame_width = self.image.w // 10
+        # frame_height = self.image.h
+        self.image.clip_draw(41, 41, 41, 41,
+                             self.x, self.y, 100, 100)
 
 class Ball:
     def __init__(self):
-        self.x, self.y = random.randin(100,700), 599
+        self.x, self.y = random.randint(100,700), 599
         self.frame = 0
-        self.speed = random.randin(3,10)
-        if random.randin(1,101) % 2 == 0:
+        self.speed = random.randint(3,10)
+        if random.randint(1,101) % 2 == 0:
             self.image = load_image('ball21x21.png')
         else :
             self.image = load_image('ball41x41.png')
     def update(self):
+        self.y -= self.speed
         pass
     def draw(self):
         frame_width = self.image.w // 10
         frame_height = self.image.h
-        self.image.clip_draw(self.frame * frame_width, 0, frame_width, frame_height,
-                                     self.x, self.y, frame_width // 2, frame_height // 2)
+        self.image.clip_draw(0, 0, 41, 41,
+                             self.x, self.y, 100, 100)
         pass
 
 
@@ -88,8 +89,8 @@ def reset_world():
     # zombie = Zombie()
     # world.append(zombie)
 
-    # ball = Ball()
-    # world.append(ball)
+    ball = Ball()
+    world.append(ball)
 
 def update_world():
     for o in world:
