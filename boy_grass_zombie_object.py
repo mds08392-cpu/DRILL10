@@ -51,8 +51,10 @@ class Ball:
         self.speed = random.randint(3,10)
         if random.randint(1,101) % 2 == 0:
             self.image = load_image('ball21x21.png')
+            self.imageSize = 21
         else :
             self.image = load_image('ball41x41.png')
+            self.imageSize = 41
     def update(self):
         self.y -= self.speed
         pass
@@ -60,7 +62,7 @@ class Ball:
         frame_width = self.image.w // 10
         frame_height = self.image.h
         self.image.clip_draw(0, 0, 41, 41,
-                             self.x, self.y, 100, 100)
+                             self.x, self.y, self.imageSize, self.imageSize)
         pass
 
 
