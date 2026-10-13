@@ -43,7 +43,6 @@ class Zombie:
         # frame_height = self.image.h
         self.image.clip_draw(41, 41, 41, 41,
                              self.x, self.y, 100, 100)
-
 class Ball:
     def __init__(self):
         self.x, self.y = random.randint(100,700), 599
