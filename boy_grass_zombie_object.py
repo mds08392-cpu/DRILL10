@@ -48,6 +48,7 @@ class Ball:
     def __init__(self):
         self.x, self.y = random.randin(100,700), 599
         self.frame = 0
+        self.speed = random.randin(1,10)
         if random.randin(1,101) % 2 == 0:
             self.image = load_image('ball21x21.png')
         else :
