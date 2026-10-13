@@ -56,7 +56,10 @@ class Ball:
             self.image = load_image('ball41x41.png')
             self.imageSize = 41
     def update(self):
-        self.y -= self.speed
+        if(self.y - self.speed <= 170):
+            self.y = 170
+        else :
+            self.y -= self.speed
         pass
     def draw(self):
         frame_width = self.image.w // 10
