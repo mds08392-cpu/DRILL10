@@ -48,7 +48,7 @@ class Ball:
     def __init__(self):
         self.x, self.y = random.randin(100,700), 599
         self.frame = 0
-        self.speed = random.randin(1,10)
+        self.speed = random.randin(3,10)
         if random.randin(1,101) % 2 == 0:
             self.image = load_image('ball21x21.png')
         else :
@@ -56,6 +56,10 @@ class Ball:
     def update(self):
         pass
     def draw(self):
+        frame_width = self.image.w // 10
+        frame_height = self.image.h
+        self.image.clip_draw(self.frame * frame_width, 0, frame_width, frame_height,
+                                     self.x, self.y, frame_width // 2, frame_height // 2)
         pass
 
 
@@ -81,9 +85,11 @@ def reset_world():
     team = [Boy() for i in range(11)]
     world += team
 
-    zombie = Zombie()
-    world.append(zombie)
+    # zombie = Zombie()
+    # world.append(zombie)
 
+    # ball = Ball()
+    # world.append(ball)
 
 def update_world():
     for o in world:
