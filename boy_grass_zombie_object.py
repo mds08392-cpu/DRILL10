@@ -44,16 +44,17 @@ class Zombie:
         self.image.clip_draw(self.frame * frame_width, 0, frame_width, frame_height,
                              self.x, self.y, frame_width // 2, frame_height // 2)
 
-class smallBall:
+class Ball:
     def __init__(self):
         self.x, self.y = random.randin(100,700), 599
         self.frame = 0
-        self.image = load_image('ball21x21.png')
-class bigBall:
-    def __init__(self):
-        self.x, self.y = random.randin(100,700), 599
-        self.frame = 0
-        self.image = load_image('ball41x41.png')
+        if random.randin(1,101) % 2 == 0:
+            self.image = load_image('ball21x21.png')
+        else :
+            self.image = load_image('ball41x41.png')
+        
+
+
 def handle_events():
     global running
     events = get_events()
@@ -62,7 +63,6 @@ def handle_events():
             running = False
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
-
 
 def reset_world():
     global running
