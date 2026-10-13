@@ -49,7 +49,11 @@ class smallBall:
         self.x, self.y = random.randin(100,700), 599
         self.frame = 0
         self.image = load_image('ball21x21.png')
-
+class bigBall:
+    def __init__(self):
+        self.x, self.y = random.randin(100,700), 599
+        self.frame = 0
+        self.image = load_image('ball41x41.png')
 def handle_events():
     global running
     events = get_events()
