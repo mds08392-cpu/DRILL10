@@ -48,7 +48,7 @@ class Ball:
     def __init__(self):
         self.x, self.y = random.randint(100,700), 599
         self.frame = 0
-        self.speed = random.randint(1,15)
+        self.speed = random.randint(2,15)
         if random.randint(1,101) % 2 == 0:
             self.image = load_image('ball21x21.png')
             self.imageSize = 21
@@ -56,11 +56,12 @@ class Ball:
             self.image = load_image('ball41x41.png')
             self.imageSize = 41
     def update(self):
-        if(self.y - self.speed <= 170):
-            self.y = 170
-        else :
+        if(self.y - self.speed <= 70 and self.imageSize == 41):
+            self.y = 70
+        elif(self.y - self.speed <= 60 and self.imageSize == 21):
+            self.y = 60
+        else:
             self.y -= self.speed
-        pass
     def draw(self):
         frame_width = self.image.w // 10
         frame_height = self.image.h
