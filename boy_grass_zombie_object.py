@@ -44,6 +44,11 @@ class Zombie:
         self.image.clip_draw(self.frame * frame_width, 0, frame_width, frame_height,
                              self.x, self.y, frame_width // 2, frame_height // 2)
 
+class smallBall:
+    def __init__(self):
+        self.x, self.y = random.randin(100,700), 599
+        self.frame = 0
+        self.image = load_image('ball21x21.png')
 
 def handle_events():
     global running
