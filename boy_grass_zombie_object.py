@@ -53,6 +53,8 @@ class Ball:
             self.image = load_image('ball21x21.png')
         else :
             self.image = load_image('ball41x41.png')
+    def update(self):
+        pass
         
 
 
